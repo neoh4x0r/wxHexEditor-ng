@@ -1,25 +1,25 @@
-/***********************************(GPL)********************************
-*   wxHexEditor is a hex edit tool for editing massive files in Linux   *
-*   Copyright (C) 2010  Erdem U. Altinyurt                              *
-*                                                                       *
-*   This program is free software; you can redistribute it and/or       *
-*   modify it under the terms of the GNU General Public License         *
-*   as published by the Free Software Foundation; either version 2      *
-*   of the License.                                                     *
-*                                                                       *
-*   This program is distributed in the hope that it will be useful,     *
-*   but WITHOUT ANY WARRANTY; without even the implied warranty of      *
-*   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the       *
-*   GNU General Public License for more details.                        *
-*                                                                       *
-*   You should have received a copy of the GNU General Public License   *
-*   along with this program;                                            *
-*   if not, write to the Free Software Foundation, Inc.,                *
-*   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA        *
-*                                                                       *
-*               home  : www.wxhexeditor.org                             *
-*               email : spamjunkeater@gmail.com                         *
-*************************************************************************/
+/***********************************(GPL)***********************************
+*   wxHexEditor-ng is a hex edit tool for editing massive files in Linux   *
+*   Copyright (C) 2022  Dario                                              *
+*   Copyright (C) 2010  Erdem U. Altinyurt                                 *
+*                                                                          *
+*   This program is free software; you can redistribute it and/or          *
+*   modify it under the terms of the GNU General Public License            *
+*   as published by the Free Software Foundation; either version 2         *
+*   of the License.                                                        *
+*                                                                          *
+*   This program is distributed in the hope that it will be useful,        *
+*   but WITHOUT ANY WARRANTY; without even the implied warranty of         *
+*   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the          *
+*   GNU General Public License for more details.                           *
+*                                                                          *
+*   You should have received a copy of the GNU General Public License      *
+*   along with this program;                                               *
+*   if not, write to the Free Software Foundation, Inc.,                   *
+*   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA           *
+*                                                                          *
+*               home  : https://github.com/dariox86/wxHexEditor-ng         *
+****************************************************************************/
 
 #include "Tag.h"
 #include "wxHexCtrl.h"

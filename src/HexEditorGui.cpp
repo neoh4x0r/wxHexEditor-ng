@@ -300,7 +300,7 @@ HexEditorGui::HexEditorGui( wxWindow* parent, wxWindowID id, const wxString& tit
 	helpMenu->Append( menuHelpDonate );
 
 	wxMenuItem* menuHelpWiki;
-	menuHelpWiki = new wxMenuItem( helpMenu, idWiki, wxString( wxT("Wiki") ) , wxT("Documentation page of wxHexEditor"), wxITEM_NORMAL );
+	menuHelpWiki = new wxMenuItem( helpMenu, idWiki, wxString( wxT("Wiki") ) , wxT("Documentation page of wxHexEditor-ng"), wxITEM_NORMAL );
 	helpMenu->Append( menuHelpWiki );
 
 	wxMenuItem* menuHelpBugReporting;
@@ -1266,11 +1266,11 @@ UpdateDialogGui::UpdateDialogGui( wxWindow* parent, wxWindowID id, const wxStrin
 	wxBoxSizer* VerticalBoxSizer;
 	VerticalBoxSizer = new wxBoxSizer( wxVERTICAL );
 
-	version_text = new wxStaticText( this, wxID_ANY, wxT("New wxHexEditor version %s is available!"), wxDefaultPosition, wxDefaultSize, 0 );
+	version_text = new wxStaticText( this, wxID_ANY, wxT("New wxHexEditor-ng version %s is available!"), wxDefaultPosition, wxDefaultSize, 0 );
 	version_text->Wrap( -1 );
 	VerticalBoxSizer->Add( version_text, 0, wxALIGN_CENTER|wxALL, 10 );
 
-	m_hyperlink = new wxHyperlinkCtrl( this, wxID_ANY, wxT("Download new wxHexEditor"), wxT("http://www.wxhexeditor.org"), wxDefaultPosition, wxDefaultSize, wxHL_DEFAULT_STYLE );
+	m_hyperlink = new wxHyperlinkCtrl( this, wxID_ANY, wxT("Download new wxHexEditor-ng"), wxT("https://github.com/dariox86/wxHexEditor-ng"), wxDefaultPosition, wxDefaultSize, wxHL_DEFAULT_STYLE );
 	VerticalBoxSizer->Add( m_hyperlink, 0, wxALIGN_CENTER|wxALL, 5 );
 
 	wxchk_display = new wxCheckBox( this, wxID_ANY, wxT("Do not show this again."), wxDefaultPosition, wxDefaultSize, 0 );

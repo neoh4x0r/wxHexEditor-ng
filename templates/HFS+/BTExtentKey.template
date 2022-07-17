@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<wxHexEditor_XML_TAG>
+<wxHexEditor-ng_XML_TAG>
   <filename path="/home/osf/Desktop/Templates/HFS+/BTExtentKey">
     <TAG id="0">
       <start_offset>0</start_offset>
@@ -37,4 +37,4 @@
       <note_colour>#87EA96</note_colour>
     </TAG>
   </filename>
-</wxHexEditor_XML_TAG>
+</wxHexEditor-ng_XML_TAG>

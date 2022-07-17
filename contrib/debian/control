@@ -1,14 +1,14 @@
-Source: wxhexeditor
+Source: wxhexeditor-ng
 Section: utils
 Priority: extra
 Maintainer: Erdem U. Altinyurt <spamjunkeater@gmail.com>
 Build-Depends: debhelper (>= 7), libwxgtk2.8-dev
 Standards-Version: 3.8.1
-Homepage: http://wxhexeditor.sourceforge.net
+Homepage: https://github.com/dariox86/wxHexEditor-ng
 
-Package: wxhexeditor
+Package: wxHexEditor-ng
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: This program is another GUI hex editor for big files.
- wxHexEditor is another GUI hex editor for open HUGE files and devices in linux mainland. Designed for reverse enginering binary files. With wxHexEditor, you can edit huge files and devices.
+ wxHexEditor-ng is another GUI hex editor for open HUGE files and devices in linux mainland. Designed for reverse enginering binary files. With wxHexEditor-ng, you can edit huge files and devices.
 

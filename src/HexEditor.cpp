@@ -1,25 +1,25 @@
-/***********************************(GPL)********************************
-*   wxHexEditor is a hex edit tool for editing massive files in Linux   *
-*   Copyright (C) 2010  Erdem U. Altinyurt                              *
-*                                                                       *
-*   This program is free software; you can redistribute it and/or       *
-*   modify it under the terms of the GNU General Public License         *
-*   as published by the Free Software Foundation; either version 2      *
-*   of the License.                                                     *
-*                                                                       *
-*   This program is distributed in the hope that it will be useful,     *
-*   but WITHOUT ANY WARRANTY; without even the implied warranty of      *
-*   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the       *
-*   GNU General Public License for more details.                        *
-*                                                                       *
-*   You should have received a copy of the GNU General Public License   *
-*   along with this program;                                            *
-*   if not, write to the Free Software Foundation, Inc.,                *
-*   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA        *
-*                                                                       *
-*               home  : www.wxhexeditor.org                             *
-*               email : spamjunkeater@gmail.com                         *
-*************************************************************************/
+/***********************************(GPL)***********************************
+*   wxHexEditor-ng is a hex edit tool for editing massive files in Linux   *
+*   Copyright (C) 2022  Dario                                              *
+*   Copyright (C) 2010  Erdem U. Altinyurt                                 *
+*                                                                          *
+*   This program is free software; you can redistribute it and/or          *
+*   modify it under the terms of the GNU General Public License            *
+*   as published by the Free Software Foundation; either version 2         *
+*   of the License.                                                        *
+*                                                                          *
+*   This program is distributed in the hope that it will be useful,        *
+*   but WITHOUT ANY WARRANTY; without even the implied warranty of         *
+*   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the          *
+*   GNU General Public License for more details.                           *
+*                                                                          *
+*   You should have received a copy of the GNU General Public License      *
+*   along with this program;                                               *
+*   if not, write to the Free Software Foundation, Inc.,                   *
+*   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA           *
+*                                                                          *
+*               home  : https://github.com/dariox86/wxHexEditor-ng         *
+****************************************************************************/
 
 
 #include "HexEditor.h"
@@ -335,7 +335,7 @@ bool HexEditor::FileOpen(wxFileName& myfilename ) {
 #endif
 			}
 
-		LoadTAGS( myfilename.GetFullPath().Append(wxT(".tags")) ); //Load tags to wxHexEditorCtrl
+		LoadTAGS( myfilename.GetFullPath().Append(wxT(".tags")) ); //Load tags to wxHexEditor-ngCtrl
 
 		tagpanel->Set(MainTagArray); //Sets Tags to Tag panel
 		if(MainTagArray.Count() > 0) {
@@ -1636,7 +1636,7 @@ bool HexEditor::CopySelection( void ) {
 						wxMessageBox(_( "WARNING:\n"\
 						                "The text you are copying includes a null character\n"\
 						                "(00 in the hex pane) and will be truncated!\n\n"\
-						                "If copying to another file in wxHexEditor you\n"\
+						                "If copying to another file in wxHexEditor-ng you\n"\
 						                "should copy from the Hex pane, not the text pane"),
 						             _("Warning"), wxOK|wxICON_INFORMATION, this);
 						}
@@ -1661,7 +1661,7 @@ bool HexEditor::CopySelection( void ) {
 				int64_t rd = myfile->Read( static_cast<char*>(buff), size );
 				copy_mark->m_buffer.UngetWriteBuf( rd );
 				copy_mark->m_buffer.SetDataLen( rd );
-				wxString CopyString = wxT("wxHexEditor Internal Buffer Object : ");
+				wxString CopyString = wxT("wxHexEditor-ng Internal Buffer Object : ");
 				CopyString += wxString::Format(wxT("%p"), (copy_mark->m_buffer.GetData()) );
 				copy_mark->copied = true;
 				copy_mark->size = select->GetSize();
@@ -1685,7 +1685,7 @@ bool HexEditor::CopySelection( void ) {
 			copy_mark->copied = true;
 			copy_mark->size = select->GetSize();
 			copy_mark->start = select->GetStart();
-			wxString CopyString = wxT("wxHexEditor Internal Copy Mark File : ");
+			wxString CopyString = wxT("wxHexEditor-ng Internal Copy Mark File : ");
 			CopyString += myfile->GetFileName().GetFullName();
 			CopyString += wxString::Format(wxT(" Offset %" wxLongLongFmtSpec "u:"), select->GetStart() );
 			CopyString += wxString::Format(wxT(" Size %" wxLongLongFmtSpec "u:"), select->GetSize() );
@@ -1705,7 +1705,7 @@ bool HexEditor::PasteFromClipboard( void ) {
 	wxString str = copy_mark->GetClipboardData();
 	if( str.IsEmpty() )
 		wxMessageBox(_("No data available at clipboad!"));
-	else if( str.StartsWith(wxT("wxHexEditor Internal Copy Mark File : "))) {
+	else if( str.StartsWith(wxT("wxHexEditor-ng Internal Copy Mark File : "))) {
 		wxMessageBox(_("Note: Used internal binary copy buffer at paste operation."));
 		std::cout<< "Copy buff len:" << copy_mark->size << std::endl;
 
@@ -1723,7 +1723,7 @@ bool HexEditor::PasteFromClipboard( void ) {
 		Goto( CursorOffset() + copy_mark->size );
 		ret = true;
 		}
-	else if( str.StartsWith(wxT("wxHexEditor Internal Buffer Object : "))) {
+	else if( str.StartsWith(wxT("wxHexEditor-ng Internal Buffer Object : "))) {
 		wxMessageBox(_("Note: Used internal binary copy buffer at paste operation."));
 		std::cout<< "Copy buff len:" << copy_mark->m_buffer.GetDataLen() << std::endl;
 		myfile->Add( CursorOffset(), static_cast<const char*>(copy_mark->m_buffer.GetData()), copy_mark->m_buffer.GetDataLen(), 0 );

@@ -28,7 +28,7 @@ build-stamp: configure-stamp
 
 	# Add here commands to compile the package.
 	$(MAKE)
-	#docbook-to-man debian/wxhexeditor.sgml > wxhexeditor.1
+	#docbook-to-man debian/wxHexEditor-ng.sgml > wxHexEditor-ng.1
 
 	touch $@
 
@@ -48,8 +48,8 @@ install: build
 	dh_prep  
 	dh_installdirs
 
-	# Add here commands to install the package into debian/wxhexeditor.
-	$(MAKE) DESTDIR=$(CURDIR)/debian/wxhexeditor install
+	# Add here commands to install the package into debian/wxHexEditor-ng.
+	$(MAKE) DESTDIR=$(CURDIR)/debian/wxHexEditor-ng install
 
 
 # Build architecture-independent files here.

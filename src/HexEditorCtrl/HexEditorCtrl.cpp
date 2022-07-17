@@ -1,25 +1,25 @@
-/***********************************(GPL)********************************
-*   wxHexEditor is a hex edit tool for editing massive files in Linux   *
-*   Copyright (C) 2010  Erdem U. Altinyurt                              *
-*                                                                       *
-*   This program is free software; you can redistribute it and/or       *
-*   modify it under the terms of the GNU General Public License         *
-*   as published by the Free Software Foundation; either version 2      *
-*   of the License.                                                     *
-*                                                                       *
-*   This program is distributed in the hope that it will be useful,     *
-*   but WITHOUT ANY WARRANTY; without even the implied warranty of      *
-*   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the       *
-*   GNU General Public License for more details.                        *
-*                                                                       *
-*   You should have received a copy of the GNU General Public License   *
-*   along with this program;                                            *
-*   if not, write to the Free Software Foundation, Inc.,                *
-*   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA        *
-*                                                                       *
-*               home  : www.wxhexeditor.org                             *
-*               email : spamjunkeater@gmail.com                         *
-*************************************************************************/
+/***********************************(GPL)***********************************
+*   wxHexEditor-ng is a hex edit tool for editing massive files in Linux   *
+*   Copyright (C) 2022  Dario                                              *
+*   Copyright (C) 2010  Erdem U. Altinyurt                                 *
+*                                                                          *
+*   This program is free software; you can redistribute it and/or          *
+*   modify it under the terms of the GNU General Public License            *
+*   as published by the Free Software Foundation; either version 2         *
+*   of the License.                                                        *
+*                                                                          *
+*   This program is distributed in the hope that it will be useful,        *
+*   but WITHOUT ANY WARRANTY; without even the implied warranty of         *
+*   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the          *
+*   GNU General Public License for more details.                           *
+*                                                                          *
+*   You should have received a copy of the GNU General Public License      *
+*   along with this program;                                               *
+*   if not, write to the Free Software Foundation, Inc.,                   *
+*   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA           *
+*                                                                          *
+*               home  : https://github.com/dariox86/wxHexEditor-ng         *
+****************************************************************************/
 extern int fake_block_size;
 #include "HexEditorCtrl.h"
 //???
@@ -901,7 +901,7 @@ bool HexEditorCtrl::LoadTAGS( wxFileName flnm, int64_t use_offset ) {
 	wxXmlDocument doc;
 	if( flnm.IsFileReadable() )
 		if( doc.Load( flnm.GetFullPath(), wxT("UTF-8")) )
-			if (doc.GetRoot()->GetName() == wxT("wxHexEditor_XML_TAG")) {
+			if (doc.GetRoot()->GetName() == wxT("wxHexEditor-ng_XML_TAG")) {
 				wxXmlNode *child = doc.GetRoot()->GetChildren();
 
 				child = child->GetChildren();	//<filename> -> <TAG>
@@ -1010,7 +1010,7 @@ bool HexEditorCtrl::SaveTAGS( wxFileName flnm ) {
 	else {
 		wxXmlDocument doc;
 
-		wxXmlNode *node_Root = new wxXmlNode( NULL, wxXML_ELEMENT_NODE, wxT("wxHexEditor_XML_TAG"), wxEmptyString, NULL, NULL);
+		wxXmlNode *node_Root = new wxXmlNode( NULL, wxXML_ELEMENT_NODE, wxT("wxHexEditor-ng_XML_TAG"), wxEmptyString, NULL, NULL);
 
 #if wxCHECK_VERSION(3, 0, 0)
 		wxXmlAttribute *prop_filename = new wxXmlAttribute( wxT("path"), flnm.GetFullPath(), NULL);
@@ -1057,7 +1057,7 @@ bool HexEditorCtrl::SaveTAGS( wxFileName flnm ) {
 	}
 
 void HexEditorCtrl::SearchResultsToTAGs( void ) {
-	std::cout << "wxHexEditorCtrl::SearchResultsToTAGs()" << std::endl;
+	std::cout << "wxHexEditorngCtrl::SearchResultsToTAGs()" << std::endl;
 	for( unsigned i = 0 ; i < HighlightArray.Count() ; i++ ) {
 		std::cout << "i:" << i << std::endl;
 		TagElement *TAG = HighlightArray.Item(i);
@@ -1081,7 +1081,7 @@ void HexEditorCtrl::SearchResultsToTAGs( void ) {
 	}
 
 void HexEditorCtrl::UpdateUI(wxUpdateUIEvent& event) {
-	std::cout << "wxHexEditorCtrl::OnUpdateUI()" << std::endl;
+	std::cout << "wxHexEditorngCtrl::OnUpdateUI()" << std::endl;
 	//m_static_offset->SetLabel( offset_ctrl->hex_offset==false ? _("Offset: DEC") : _("Offset: HEX"));
 	}
 

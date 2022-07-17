@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.14.4)
-project(wxHexEditor)
+project(wxHexEditor-ng)
 
 set (CMAKE_C_STANDARD 11)
 set (CMAKE_CXX_STANDARD 17)
@@ -27,8 +27,8 @@ file(
 )
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/bin)
-add_executable(wxHexEditor ${hex_sources} ${hex_editor_ctrl_sources})
-target_include_directories(wxHexEditor PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+add_executable(wxHexEditor-ng ${hex_sources} ${hex_editor_ctrl_sources})
+target_include_directories(wxHexEditor-ng PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 target_link_libraries(
-	wxHexEditor PRIVATE mhash udis ${wxWidgets_LIBRARIES} uxtheme oleacc psapi ws2_32
+	wxHexEditor-ng PRIVATE mhash udis ${wxWidgets_LIBRARIES} uxtheme oleacc psapi ws2_32
 )

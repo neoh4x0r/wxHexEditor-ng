@@ -1,25 +1,25 @@
-/***********************************(GPL)********************************
-*   wxHexEditor is a hex edit tool for editing massive files in Linux   *
-*   Copyright (C) 2010  Erdem U. Altinyurt                              *
-*                                                                       *
-*   This program is free software; you can redistribute it and/or       *
-*   modify it under the terms of the GNU General Public License         *
-*   as published by the Free Software Foundation; either version 2      *
-*   of the License.                                                     *
-*                                                                       *
-*   This program is distributed in the hope that it will be useful,     *
-*   but WITHOUT ANY WARRANTY; without even the implied warranty of      *
-*   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the       *
-*   GNU General Public License for more details.                        *
-*                                                                       *
-*   You should have received a copy of the GNU General Public License   *
-*   along with this program;                                            *
-*   if not, write to the Free Software Foundation, Inc.,                *
-*   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA        *
-*                                                                       *
-*               home  : www.wxhexeditor.org                             *
-*               email : spamjunkeater@gmail.com                         *
-*************************************************************************/
+/***********************************(GPL)***********************************
+*   wxHexEditor-ng is a hex edit tool for editing massive files in Linux   *
+*   Copyright (C) 2022  Dario                                              *
+*   Copyright (C) 2010  Erdem U. Altinyurt                                 *
+*                                                                          *
+*   This program is free software; you can redistribute it and/or          *
+*   modify it under the terms of the GNU General Public License            *
+*   as published by the Free Software Foundation; either version 2         *
+*   of the License.                                                        *
+*                                                                          *
+*   This program is distributed in the hope that it will be useful,        *
+*   but WITHOUT ANY WARRANTY; without even the implied warranty of         *
+*   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the          *
+*   GNU General Public License for more details.                           *
+*                                                                          *
+*   You should have received a copy of the GNU General Public License      *
+*   along with this program;                                               *
+*   if not, write to the Free Software Foundation, Inc.,                   *
+*   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA           *
+*                                                                          *
+*               home  : https://github.com/dariox86/wxHexEditor-ng         *
+****************************************************************************/
 
 #define NANINT 0xFFFFFFFFFFFFFFFFULL
 #include "HexDialogs.h"
@@ -446,7 +446,7 @@ void FindDialog::FindSomeBytes( void ) {
 		return;
 	wxString msg= _("Finding Some Bytes...");
 	wxString emsg=wxT("\n");
-	wxProgressDialog progress_gauge(_("wxHexEditor Searching"), msg+emsg, 1000,  this, wxPD_SMOOTH|wxPD_REMAINING_TIME|wxPD_CAN_ABORT|wxPD_AUTO_HIDE );
+	wxProgressDialog progress_gauge(_("wxHexEditor-ng Searching"), msg+emsg, 1000,  this, wxPD_SMOOTH|wxPD_REMAINING_TIME|wxPD_CAN_ABORT|wxPD_AUTO_HIDE );
 	progress_gauge.SetWindowStyleFlag( progress_gauge.GetWindowStyleFlag()|wxSTAY_ON_TOP|wxMINIMIZE_BOX );
 // TODO (death#1#): Search icon
 	//wxIcon search_ICON (?_xpm);
@@ -725,7 +725,7 @@ uint64_t FindDialog::FindBinary( wxMemoryBuffer target, uint64_t from, unsigned 
 #ifndef _DEBUG_FIND_UNIT_TEST_
 	wxString msg= _("Finding matches...");
 	wxString emsg=wxT("\n");
-	wxProgressDialog progress_gauge(_("wxHexEditor Searching"), msg+emsg, 1000,  this, wxPD_SMOOTH|wxPD_REMAINING_TIME|wxPD_CAN_ABORT|wxPD_AUTO_HIDE );
+	wxProgressDialog progress_gauge(_("wxHexEditor-ng Searching"), msg+emsg, 1000,  this, wxPD_SMOOTH|wxPD_REMAINING_TIME|wxPD_CAN_ABORT|wxPD_AUTO_HIDE );
 	progress_gauge.SetWindowStyleFlag( progress_gauge.GetWindowStyleFlag()|wxSTAY_ON_TOP|wxMINIMIZE_BOX );
 #endif //_DEBUG_FIND_UNIT_TEST_
 // TODO (death#1#): Search icon
@@ -2117,39 +2117,39 @@ void CopyAsDialog::Copy( void ) {
 //				<code style="color:#000000;background-color:#FFFFFF">0000E973   1375 6E5A 8696 553A 01C9 51A2 F244 90BD   .unZ..U:.ÉQ¢òD.½</code>
 //				<code style="color:#000000;background-color:zebra?;">0000E983   1375 6E5A 8696 553A 01C9 51A2 F244 90BD   .unZ..U:.ÉQ¢òD.½</code>
 //				</pre>
-//				<font size="-3">Generated by <a href="http://wxhexeditor.sourceforge.net/">wxHexEditor</a></font>
+//				<font size="-3">Generated by <a href="https://github.com/dariox86/wxHexEditor-ng">wxHexEditor-ng</a></font>
 //				</body></html>
 				cb += wxT("<pre><code style=\"color:#000000;\">");
 				PrepareFullText( cb, buff );
-				cb += wxT("</code></pre><font size=\"-3\">Generated by <a href=\"http://www.wxHexEditor.org/\">wxHexEditor</a></font>");
+				cb += wxT("</code></pre><font size=\"-3\">Generated by <a href=\"https://github.com/dariox86/wxHexEditor-ng\">wxHexEditor-ng</a></font>");
 				}
 
 			else if( chcOption->GetSelection() == 1 ) { //HTML with Tags
 				cb += wxT("<pre><code style=\"color:#000000;\">");
 				PrepareFullTextWithTAGs( cb, buff, wxT(""), wxT("<br/>"), wxT("&nbsp;") );
-				cb += wxT("</code></pre><font size=\"-3\">Generated by <a href=\"http://www.wxHexEditor.org\">wxHexEditor</a></font>");
+				cb += wxT("</code></pre><font size=\"-3\">Generated by <a href=\"https://github.com/dariox86/wxHexEditor-ng\">wxHexEditor-ng</a></font>");
 				}
 
 			else if( chcOption->GetSelection() == 2 ) { //phpBB Forum
 				cb+= wxT("[code]");
 				PrepareFullText( cb, buff );
-				cb += wxT("[/code]Generated by [url=http://www.wxHexEditor.org]wxHexEditor[/url]" wxNewline);
+				cb += wxT("[/code]Generated by [url=https://github.com/dariox86/wxHexEditor-ng]wxHexEditor-ng[/url]" wxNewline);
 				}
 
 			else if( chcOption->GetSelection() == 3 ) { //WiKi format
 				cb+= wxT("<pre>");
 				PrepareFullText( cb, buff );
-				cb += wxT("</pre> Generated by [http://www.wxHexEditor.org/ wxHexEditor]" wxNewline);
+				cb += wxT("</pre> Generated by [https://github.com/dariox86/wxHexEditor-ng wxHexEditor-ng]" wxNewline);
 				}
 			else if( chcOption->GetSelection() == 4 ) { //WiKi with TAGs
 				PrepareFullTextWithTAGs( cb, buff, wxT(" "),wxT("\n"),wxT(" ") );
-				cb += wxT(" Generated by [http://www.wxHexEditor.org/ wxHexEditor]" wxNewline);
+				cb += wxT(" Generated by [https://github.com/dariox86/wxHexEditor-ng wxHexEditor-ng]" wxNewline);
 				}
 			}
 		else if( chcCopyAs->GetSelection() == 3) { //C/C++
 			unsigned HexSize = pow( 2, chcOption->GetSelection());
 			unsigned count = select->GetSize()/HexSize;
-			cb+=wxT("// Generated by wxHexEditor //" wxNewline);
+			cb+=wxT("// Generated by wxHexEditor-ng //" wxNewline);
 			switch( HexSize ) {
 				case 1:
 					cb += wxT("int8_t");
@@ -2190,7 +2190,7 @@ void CopyAsDialog::Copy( void ) {
 		else if( chcCopyAs->GetSelection() == 4) { //ASM
 			unsigned HexSize = pow( 2, chcOption->GetSelection());
 			unsigned count = select->GetSize()/HexSize;
-			cb+=wxT(";Generated by wxHexEditor");
+			cb+=wxT(";Generated by wxHexEditor-ng");
 
 			wxString HexFormat;
 			switch( HexSize ) {
@@ -2332,7 +2332,7 @@ bool CompareDialog::Compare( wxFileName fl1, wxFileName fl2, bool SearchForDiff,
 			}
 	wxString msg= _("Comparing files...");
 	wxString emsg=wxT("\n");
-	wxProgressDialog pdlg( _("wxHexEditor Comparing"), msg+emsg, 1000, this, wxPD_AUTO_HIDE | wxPD_SMOOTH | wxPD_APP_MODAL|wxPD_CAN_ABORT/*|wxPD_CAN_SKIP*/|wxPD_REMAINING_TIME); //SKIP not ready and Buggy
+	wxProgressDialog pdlg( _("wxHexEditor-ng Comparing"), msg+emsg, 1000, this, wxPD_AUTO_HIDE | wxPD_SMOOTH | wxPD_APP_MODAL|wxPD_CAN_ABORT/*|wxPD_CAN_SKIP*/|wxPD_REMAINING_TIME); //SKIP not ready and Buggy
 	pdlg.SetWindowStyleFlag( pdlg.GetWindowStyleFlag()|wxSTAY_ON_TOP|wxMINIMIZE_BOX );
 	pdlg.Show();
 
@@ -2981,7 +2981,7 @@ PreferencesDialog::PreferencesDialog( wxWindow* parent ):PreferencesDialogGui(pa
 	textCtlFakeBlockSize->Enable( chkFakeBlockLines->IsChecked() );
 	if( myConfigBase::Get()->Read( _T("FakeBlockSize"), &TempString )	) 						textCtlFakeBlockSize->SetValue( TempString );
 	spinBytePerLine->Enable( chkBytePerLineLimit->IsChecked() );
-	chkPortable->SetValue( wxFileExists(wxT("wxHexEditor.cfg")) );
+	chkPortable->SetValue( wxFileExists(wxT("wxHexEditor-ng.cfg")) );
 
 
 	int TempInt;
@@ -3077,7 +3077,7 @@ void PreferencesDialog::GetInstalledLanguages(wxArrayString & names, wxArrayLong
 					         dir.GetName() + wxFileName::GetPathSeparator() +
 					         dirname + wxFileName::GetPathSeparator() +
 					         _T("LC_MESSAGES") + wxFileName::GetPathSeparator() +
-					         _T("wxHexEditor") + _T(".mo"))) {
+					         _T("wxHexEditor-ng") + _T(".mo"))) {
 
 						bool duplicate = false;
 						for( unsigned i = 0 ; i < identifiers.Count() ; i++ )	//Avoid duplicated locales
@@ -3107,7 +3107,7 @@ void PreferencesDialog::GetInstalledLanguages(wxArrayString & names, wxArrayLong
 				if(wxFileExists(
 				         dir.GetName() + wxFileName::GetPathSeparator() +
 				         dirname + wxFileName::GetPathSeparator() +
-				         _T("wxHexEditor") + _T(".mo"))) {
+				         _T("wxHexEditor-ng") + _T(".mo"))) {
 
 					bool duplicate = false;
 					for( unsigned i = 0 ; i < identifiers.Count() ; i++ )	//Avoid duplicated locales
@@ -3141,7 +3141,7 @@ void PreferencesDialog::GetInstalledLanguages(wxArrayString & names, wxArrayLong
 				if(wxFileExists(
 				         dir.GetName() + wxFileName::GetPathSeparator() +
 				         dirname + wxFileName::GetPathSeparator() +
-				         _T("wxHexEditor") + _T(".mo"))) {
+				         _T("wxHexEditor-ng") + _T(".mo"))) {
 
 					bool duplicate = false;
 					for( unsigned i = 0 ; i < identifiers.Count() ; i++ )	//Avoid duplicated locales
@@ -3234,11 +3234,11 @@ void PreferencesDialog::EventHandler( wxCommandEvent& event ) {
 
 	if(event.GetId() == chkPortable->GetId() ) {
 		if( event.IsChecked() ) {
-			wxFile f(wxT("wxHexEditor.cfg"), wxFile::write );
+			wxFile f(wxT("wxHexEditor-ng.cfg"), wxFile::write );
 			f.Close();
 			}
 		else {
-			wxRemoveFile(wxT("wxHexEditor.cfg"));
+			wxRemoveFile(wxT("wxHexEditor-ng.cfg"));
 			}
 		}
 
@@ -3520,8 +3520,8 @@ void DeviceEraseDialog::OnErase( wxCommandEvent &event ) {
 OSXMessageDialog::OSXMessageDialog( wxWindow* parent, wxString message, wxString Caption):OSXMessageDialogGui(parent, wxID_ANY) {
 	txtMessage->SetLabel( message );
 	txtCaption->SetLabel( Caption );
-	wxIcon wxHexEditor_ICON ( wxhex_xpm );
-	icon_bitmap->SetIcon(wxHexEditor_ICON);
+	wxIcon wxHexEditorng_ICON ( wxhex_xpm );
+	icon_bitmap->SetIcon(wxHexEditorng_ICON);
 	this->Fit();
 	this->Layout();
 	}

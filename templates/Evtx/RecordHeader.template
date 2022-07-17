@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<wxHexEditor_XML_TAG>
+<wxHexEditor-ng_XML_TAG>
   <filename path="C:\Users\forensics\Desktop\WinEvents\RecordHeader.bin">
     <TAG id="0">
       <start_offset>0</start_offset>
@@ -30,4 +30,4 @@
       <note_colour>#8080C0</note_colour>
     </TAG>
   </filename>
-</wxHexEditor_XML_TAG>
+</wxHexEditor-ng_XML_TAG>

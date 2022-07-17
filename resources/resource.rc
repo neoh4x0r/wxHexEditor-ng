@@ -1,2 +1,2 @@
-aaaa ICON "resources/wxHexEditor.ico"
+aaaa ICON "resources/wxHexEditor-ng.ico"
 #include <wx/msw/wx.rc>

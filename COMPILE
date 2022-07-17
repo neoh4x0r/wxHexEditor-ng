@@ -1,10 +1,10 @@
-You can compile wxHexEditor with Code::Blocks (C::B) easily.
-All you need to install C::B for your OS, required compilation toolset (gcc) and wxHexEditor library for compilation.
+You can compile wxHexEditor-ng with Code::Blocks (C::B) easily.
+All you need to install C::B for your OS, required compilation toolset (gcc) and wxHexEditor-ng library for compilation.
 
-But you can also build wxHexEditor from your shell.
-For compiling wxHexEditor, without C::B you have to build internal udis and mhash libraries. They are automatically compiled when you run make command.
+But you can also build wxHexEditor-ng from your shell.
+For compiling wxHexEditor-ng, without C::B you have to build internal udis and mhash libraries. They are automatically compiled when you run make command.
 
-Please follow those directives under your OS to compile wxHexEditor.
+Please follow those directives under your OS to compile wxHexEditor-ng.
 -----------------------------------------------------
 LINUX
 -----------------------------------------------------
@@ -17,22 +17,22 @@ or use your need to use this one for distros like OpenSuSE...
 
   zypper in wxWidgets-devel
 
-Then extract the wxHexEditor:
+Then extract the wxHexEditor-ng:
 
-  tar xvf wxHexEditor-v<version>-src.tar.bz2
-  cd wxHexEditor
+  tar xvf wxHexEditor-ng-v<version>-src.tar.bz2
+  cd wxHexEditor-ng
   make
 
 you can also use OPTFLAGS and WXCONFIG flags if you have different wx-config name like
   make WXCONFIG=wx-config CPPFLAGS="-fPIC" OPTFLAGS="-O3 -march-native -fopenmp"
 
-Than you could use this command for installing wxHexEditor to your computer.
+Than you could use this command for installing wxHexEditor-ng to your computer.
   make install
 
 -----------------------------------------------------
 On Linux Cross-Compiling To WINDOWS
 -----------------------------------------------------
-If you have Linux installation and want to build Win32/Win64 build of wxHexEditor, follow this guide.
+If you have Linux installation and want to build Win32/Win64 build of wxHexEditor-ng, follow this guide.
 This is how I compile.
 First, we need mingw-w64 toolchain. At AUR linux, I use;
 
@@ -49,10 +49,10 @@ I compile the wxWidgets library with a cross compiler:
   ../configure --enable-{monolithic,static,unicode} --disable-{debug,shared} --host=x86_64-w64-mingw32
   make
 
-Then I extract the wxHexEditor:
+Then I extract the wxHexEditor-ng:
 
-  tar xvf wxHexEditor-v<version>-src.tar.bz2
-  cd wxHexEditor
+  tar xvf wxHexEditor-ng-v<version>-src.tar.bz2
+  cd wxHexEditor-ng
   x86_64-w64-mingw32-make win WXCONFIG=<wx-config path> HOST=x86_64-w64-mingw32 CC=x86_64-w64-mingw32-gcc CXX=x86_64-w64-mingw32-g++
 
 PS: If you face with " _rpl_malloc " error, you can use
@@ -114,15 +114,15 @@ cd release
 PS: I use this configuration at Catalina using Clang compiler....
 
 After you make ready the dependencies,
-then extract the wxHexEditor and compile with:
-tar xvf wxHexEditor-v<version>-src.tar.bz2
-cd wxHexEditor
+then extract the wxHexEditor-ng and compile with:
+tar xvf wxHexEditor-ng-v<version>-src.tar.bz2
+cd wxHexEditor-ng
 make mac WXCONFIG=<wx-config path>
 
 Opps! I forgot to say that, you probably need to remove -lgomp flag from Makefile.
 
 If everything is OK, you can also execute program with this command:
-./wxHexEditor.app/Contents/MacOS/wxHexEditor
+./wxHexEditor-ng.app/Contents/MacOS/wxHexEditor-ng
 
 That's all.
 
@@ -134,9 +134,9 @@ In FreeBSD 12.0, you can use pkg command
 
 pkg install autotools wx31-gtk3 gmake openmp python
 
-Then extract the wxHexEditor and compile with:
-tar xvf wxHexEditor-v<version>-src.tar.bz2
-cd wxHexEditor
+Then extract the wxHexEditor-ng and compile with:
+tar xvf wxHexEditor-ng-v<version>-src.tar.bz2
+cd wxHexEditor-ng
 gmake WXCONFIG=<wx-config path>
 
 for example : gmake WXCONFIG=wxgtk3u-3.1-config

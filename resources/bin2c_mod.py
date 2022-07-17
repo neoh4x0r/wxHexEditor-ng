@@ -4,7 +4,7 @@ import os
 import os.path
 import re
 import array
-#Modified for wxHexEditor application, to create one big file that has all the icons. It's much clean in that way.
+#Modified for wxHexEditor-ng application, to create one big file that has all the icons. It's much clean in that way.
 USAGE = """png2c - Embed a PNG in a C header file (like XPM)
 Usage: png2c [file ..] Convert and sums all the file <file.png>'s to <png2c.h>"""
  

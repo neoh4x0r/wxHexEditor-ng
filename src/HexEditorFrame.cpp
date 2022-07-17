@@ -1,25 +1,25 @@
-/***********************************(GPL)********************************
-*   wxHexEditor is a hex edit tool for editing massive files in Linux   *
-*   Copyright (C) 2010  Erdem U. Altinyurt                              *
-*                                                                       *
-*   This program is free software; you can redistribute it and/or       *
-*   modify it under the terms of the GNU General Public License         *
-*   as published by the Free Software Foundation; either version 2      *
-*   of the License.                                                     *
-*                                                                       *
-*   This program is distributed in the hope that it will be useful,     *
-*   but WITHOUT ANY WARRANTY; without even the implied warranty of      *
-*   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the       *
-*   GNU General Public License for more details.                        *
-*                                                                       *
-*   You should have received a copy of the GNU General Public License   *
-*   along with this program;                                            *
-*   if not, write to the Free Software Foundation, Inc.,                *
-*   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA        *
-*                                                                       *
-*               home  : www.wxhexeditor.org                             *
-*               email : spamjunkeater@gmail.com                         *
-*************************************************************************/
+/***********************************(GPL)***********************************
+*   wxHexEditor-ng is a hex edit tool for editing massive files in Linux   *
+*   Copyright (C) 2022  Dario                                              *
+*   Copyright (C) 2010  Erdem U. Altinyurt                                 *
+*                                                                          *
+*   This program is free software; you can redistribute it and/or          *
+*   modify it under the terms of the GNU General Public License            *
+*   as published by the Free Software Foundation; either version 2         *
+*   of the License.                                                        *
+*                                                                          *
+*   This program is distributed in the hope that it will be useful,        *
+*   but WITHOUT ANY WARRANTY; without even the implied warranty of         *
+*   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the          *
+*   GNU General Public License for more details.                           *
+*                                                                          *
+*   You should have received a copy of the GNU General Public License      *
+*   along with this program;                                               *
+*   if not, write to the Free Software Foundation, Inc.,                   *
+*   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA           *
+*                                                                          *
+*               home  : https://github.com/dariox86/wxHexEditor-ng         *
+****************************************************************************/
 
 #include "HexEditorFrame.h"
 #define idDiskDevice 10000
@@ -98,7 +98,7 @@ wxArrayString GetDeviceList( bool WithPartitions=true) {
 	}
 
 HexEditorFrame::HexEditorFrame( wxWindow* parent,int id ):
-	HexEditorGui( parent, id, wxString(_T("wxHexEditor ")) << _T( _VERSION_STR_ ) ) {
+	HexEditorGui( parent, id, wxString(_T("wxHexEditor-ng ")) << _T( _VERSION_STR_ ) ) {
 #if defined( _DEBUG_ ) && defined( __WXMSW__ )
 	int no = AttachConsole(ATTACH_PARENT_PROCESS); //doesn't work!, don't know why....
 	///Use LDFLAGS="Wl,--subsystem,console -mconsole" to have debug window
@@ -120,9 +120,10 @@ HexEditorFrame::HexEditorFrame( wxWindow* parent,int id ):
 #if _FSWATCHER_
 	file_watcher=NULL;
 #endif // _FSWATCHER_
-	wxIcon wxHexEditor_ICON ( wxhex_xpm );
-	this->SetIcon(wxHexEditor_ICON);
-	license= wxT("wxHexEditor is a hex editor for HUGE files and devices.\n"
+	wxIcon wxHexEditorng_ICON ( wxhex_xpm );
+	this->SetIcon(wxHexEditorng_ICON);
+	license= wxT("wxHexEditor-ng is a hex editor for HUGE files and devices.\n"
+				 "Copyright (C) 2022  Dario\n"
 	             "Copyright (C) 2006-2012  Erdem U. Altinyurt\n"
 	             "\n"
 	             "This program is free software; you can redistribute it and/or\n"
@@ -143,8 +144,7 @@ HexEditorFrame::HexEditorFrame( wxWindow* parent,int id ):
 	             "mhash used under LGPL licence, Nikos Mavroyanopoulos (c) 1998-2008\n"
 	             "Udis86 used under BSD licence, Vivek Thampi (c) 2002-2008\n"
 	             "\n"
-	             "home:  wxhexeditor.org  -  diskeditor.net\n"
-	             "email: spamjunkeater@gmail.com\n");
+	             "home: https://github.com/dariox86/wxHexEditor-ng\n");
 
 	wxConfigBase *pConfig = myConfigBase::Get();
 	int x = pConfig->Read(_T("ScreenX"), 100),
@@ -222,7 +222,7 @@ HexEditorFrame::HexEditorFrame( wxWindow* parent,int id ):
 		myConfigBase::Get()->Read(_T("LastUpdateCheckTime"), (&last_chk));
 		if( wxDateTime::Now() - wxDateSpan::Week() > wxDateTime( last_chk ) ) {	//One check for a week enough
 			myConfigBase::Get()->Write(_T("LastUpdateCheckTime"), static_cast< double >( wxDateTime::Now().GetTicks()) );
-			VersionChecker vc( wxT("http://www.wxhexeditor.org/version.php"), wxT(_VERSION_) );
+			VersionChecker vc( wxT("https://raw.githubusercontent.com/dariox86/wxHexEditor-ng/master/VERSION"), wxT(_VERSION_) );
 			}
 		}
 
@@ -922,19 +922,19 @@ void HexEditorFrame::OnViewMenu( wxCommandEvent& event ) {
 void HexEditorFrame::OnHelpMenu( wxCommandEvent& event ) {
 	if(event.GetId() == wxID_ABOUT ) {
 		wxAboutDialogInfo AllAbout;
-		AllAbout.SetName(_T("wxHexEditor"));
+		AllAbout.SetName(_T("wxHexEditor-ng"));
 		AllAbout.SetVersion( _T(_VERSION_STR_) );
-		AllAbout.SetDescription(_("wxHexEditor is a hex editor for HUGE files and devices."));
-		AllAbout.SetCopyright(_T("(C) 2006-2012 Erdem U. Altinyurt"));
+		AllAbout.SetDescription(_("wxHexEditor-ng is a hex editor for HUGE files and devices."));
+		AllAbout.SetCopyright(_T("(C) 2022 Dario, (C) 2006-2012 Erdem U. Altinyurt"));
 		AllAbout.AddDeveloper( _T("Erdem U. Altinyurt") );
 		AllAbout.AddArtist( _T("Vlad Adrian") );
-		AllAbout.SetWebSite( _T("http://www.wxhexeditor.org"));
+		AllAbout.SetWebSite( _T("https://github.com/dariox86/wxHexEditor-ng"));
 		AllAbout.SetLicense( license );
 		wxAboutBox(AllAbout);
 		}
 
 	else if(event.GetId() == idWiki )
-		wxLaunchDefaultBrowser( wxT("http://wiki.wxhexeditor.org"),wxBROWSER_NEW_WINDOW);
+		wxLaunchDefaultBrowser( wxT("https://github.com/dariox86/wxHexEditor-ng/wiki"),wxBROWSER_NEW_WINDOW);
 
 	else if(event.GetId() == idDonate )
 		//No, you don't gonna change this.
@@ -943,7 +943,7 @@ void HexEditorFrame::OnHelpMenu( wxCommandEvent& event ) {
 
 	else if(event.GetId() == idBugReport )
 		///Report a bug for help this project
-		wxLaunchDefaultBrowser( wxT("https://github.com/EUA/wxHexEditor/issues"),wxBROWSER_NEW_WINDOW);
+		wxLaunchDefaultBrowser( wxT("https://github.com/dariox86/wxHexEditor-ng/issues"),wxBROWSER_NEW_WINDOW);
 	}
 
 void HexEditorFrame::OnUpdateUI(wxUpdateUIEvent& event) {
@@ -1335,7 +1335,7 @@ VersionChecker::VersionChecker( wxString _url, wxString _version, wxWindow *pare
 		in_stream->Read(bfr, in_stream->GetSize());
 		if( strncmp( bfr, _version.To8BitData(),  _version.Len() ) > 0 ) {
 			wxString newver = wxString::FromAscii( bfr );
-			version_text->SetLabel(wxString::Format( _("New wxHexEditor version %s is available!"), newver.c_str() ));
+			version_text->SetLabel(wxString::Format( _("New wxHexEditor-ng version %s is available!"), newver.c_str() ));
 			wxbtmp_icon->SetBitmap(  wxArtProvider::GetBitmap( wxART_TIP, wxART_MESSAGE_BOX ) );
 			Centre();
 			Fit();

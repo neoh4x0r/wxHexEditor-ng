@@ -1,28 +1,28 @@
-/***********************************(GPL)********************************
-*   wxHexEditor is a hex edit tool for editing massive files in Linux   *
-*   Copyright (C) 2010  Erdem U. Altinyurt                              *
-*                                                                       *
-*   This program is free software; you can redistribute it and/or       *
-*   modify it under the terms of the GNU General Public License         *
-*   as published by the Free Software Foundation; either version 2      *
-*   of the License.                                                     *
-*                                                                       *
-*   This program is distributed in the hope that it will be useful,     *
-*   but WITHOUT ANY WARRANTY; without even the implied warranty of      *
-*   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the       *
-*   GNU General Public License for more details.                        *
-*                                                                       *
-*   You should have received a copy of the GNU General Public License   *
-*   along with this program;                                            *
-*   if not, write to the Free Software Foundation, Inc.,                *
-*   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA        *
-*                                                                       *
-*               home  : www.wxhexeditor.org                             *
-*               email : spamjunkeater@gmail.com                         *
-*************************************************************************/
+/***********************************(GPL)***********************************
+*   wxHexEditor-ng is a hex edit tool for editing massive files in Linux   *
+*   Copyright (C) 2022  Dario                                              *
+*   Copyright (C) 2010  Erdem U. Altinyurt                                 *
+*                                                                          *
+*   This program is free software; you can redistribute it and/or          *
+*   modify it under the terms of the GNU General Public License            *
+*   as published by the Free Software Foundation; either version 2         *
+*   of the License.                                                        *
+*                                                                          *
+*   This program is distributed in the hope that it will be useful,        *
+*   but WITHOUT ANY WARRANTY; without even the implied warranty of         *
+*   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the          *
+*   GNU General Public License for more details.                           *
+*                                                                          *
+*   You should have received a copy of the GNU General Public License      *
+*   along with this program;                                               *
+*   if not, write to the Free Software Foundation, Inc.,                   *
+*   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA           *
+*                                                                          *
+*               home  : https://github.com/dariox86/wxHexEditor-ng         *
+****************************************************************************/
 
 /***************************************************************
- * Name:      wxHexEditorApp.cpp
+ * Name:      wxHexEditorngApp.cpp
  * Purpose:   Code for Application Class
  * Author:    Death Knight
  * Created:   2008-05-12
@@ -39,15 +39,15 @@
 #endif //__BORLANDC__
 
 #include "HexEditorApp.h"
-IMPLEMENT_APP(wxHexEditorApp)
+IMPLEMENT_APP(wxHexEditorngApp)
 
 #ifdef __WXMAC__
-BEGIN_EVENT_TABLE(wxHexEditorApp, wxApp)
-EVT_MENU(wxID_ABOUT, wxHexEditorApp::OnHelp)
-EVT_MENU(wxID_PREFERENCES, wxHexEditorApp::OnHelp)
+BEGIN_EVENT_TABLE(wxHexEditorngApp, wxApp)
+EVT_MENU(wxID_ABOUT, wxHexEditorngApp::OnHelp)
+EVT_MENU(wxID_PREFERENCES, wxHexEditorngApp::OnHelp)
 END_EVENT_TABLE()
 
-void wxHexEditorApp::OnHelp(wxCommandEvent& evt)
+void wxHexEditorngApp::OnHelp(wxCommandEvent& evt)
 {
 	if( evt.GetId() == wxID_ABOUT )
 		frame->OnHelpMenu(evt);
@@ -86,12 +86,12 @@ const wxCmdLineEntryDesc cmdLineDesc[] = {
 	wxCMD_LINE_DESC_END
 	};
 
-bool wxHexEditorApp::OnInit() {
+bool wxHexEditorngApp::OnInit() {
 //    wxLog::AddTraceMask("EventSource");
 //    wxLog::AddTraceMask(wxTRACE_FSWATCHER);
 
 	wxCmdLineParser parser(cmdLineDesc, argc, argv);
-	parser.SetLogo( "wxHexEditor " _VERSION_S_ );
+	parser.SetLogo( "wxHexEditor-ng " _VERSION_S_ );
 	if( parser.Parse()==-1 )
 		return false;
 	if( parser.Parse()==0 )
@@ -127,7 +127,7 @@ bool wxHexEditorApp::OnInit() {
 		}
 
 	frame = new HexEditorFrame( 0L );
-	// frame->Connect( wxEVT_MOTION,	wxMouseEventHandler(wxHexEditorApp::OnMouseMove),NULL, this);
+	// frame->Connect( wxEVT_MOTION,	wxMouseEventHandler(wxHexEditorngApp::OnMouseMove),NULL, this);
 	frame->Show();
 	wxYield();
 
@@ -135,7 +135,7 @@ bool wxHexEditorApp::OnInit() {
 	return true;
 	}
 
-void wxHexEditorApp::PostAppInit() {
+void wxHexEditorngApp::PostAppInit() {
 	wxCmdLineParser parser(cmdLineDesc, argc, argv);
 	if ( parser.Parse()==0 ) {
 		wxString compare_with;
@@ -186,7 +186,7 @@ void wxHexEditorApp::PostAppInit() {
 	}
 
 // create the file system watcher here, because it needs an active loop
-void wxHexEditorApp::OnEventLoopEnter(wxEventLoopBase* WXUNUSED(loop)) { // wxOVERRIDE
+void wxHexEditorngApp::OnEventLoopEnter(wxEventLoopBase* WXUNUSED(loop)) { // wxOVERRIDE
 	static bool first_run=true;
 	if(first_run) {
 		first_run=false;
@@ -202,7 +202,7 @@ void wxHexEditorApp::OnEventLoopEnter(wxEventLoopBase* WXUNUSED(loop)) { // wxOV
 		}
 	}
 
-void wxHexEditorApp::SetLanguage(void) {
+void wxHexEditorngApp::SetLanguage(void) {
 	wxString lang = myConfigBase::Get()->Read( _T("Language"), wxEmptyString );
 
 	if ( lang.IsEmpty() )
@@ -236,11 +236,11 @@ void wxHexEditorApp::SetLanguage(void) {
 			//return; //not return here for continue to load this program catalog
 			}
 	///And add catalogs
-	myLocale.AddCatalog(_T("wxHexEditor"));
+	myLocale.AddCatalog(_T("wxHexEditor-ng"));
 	}
 
 #ifdef _DEBUG_EVENTS_
-int wxHexEditorApp::FilterEvent(wxEvent &mevent) {
+int wxHexEditorngApp::FilterEvent(wxEvent &mevent) {
 	if( mevent.IsKindOf(CLASSINFO(wxFocusEvent)) ) {
 		wxFocusEvent* event = static_cast<wxFocusEvent*>(&mevent);
 		std::cout << "Frame : " << frame << std::endl;
@@ -263,7 +263,7 @@ int wxHexEditorApp::FilterEvent(wxEvent &mevent) {
 	}
 
 
-void wxHexEditorApp::OnMouseMove(wxMouseEvent &event) {
+void wxHexEditorngApp::OnMouseMove(wxMouseEvent &event) {
 	if( event.Moving() )
 		std::cout << "HexEditorApp::OnMouseMove Coordinate X:Y = " << event.m_x	<< " " << event.m_y
 		          << "\tLeft mouse button:" << event.LeftIsDown() << std::endl;

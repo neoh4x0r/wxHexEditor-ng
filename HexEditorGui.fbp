@@ -50,7 +50,7 @@
             <property name="size">-1,-1</property>
             <property name="style">wxDEFAULT_FRAME_STYLE</property>
             <property name="subclass"></property>
-            <property name="title">wxHexEditor Alpha Development version</property>
+            <property name="title">wxHexEditor-ng Alpha Development version</property>
             <property name="tooltip"></property>
             <property name="window_extra_style"></property>
             <property name="window_name"></property>
@@ -880,7 +880,7 @@
                         <property name="bitmap"></property>
                         <property name="checked">0</property>
                         <property name="enabled">1</property>
-                        <property name="help">Documentation page of wxHexEditor</property>
+                        <property name="help">Documentation page of wxHexEditor-ng</property>
                         <property name="id">idWiki</property>
                         <property name="kind">wxITEM_NORMAL</property>
                         <property name="label">Wiki</property>
@@ -6710,7 +6710,7 @@
             <property name="size">-1,-1</property>
             <property name="style">wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER</property>
             <property name="subclass"></property>
-            <property name="title">New wxHexEditor Version!</property>
+            <property name="title">New wxHexEditor-ng Version!</property>
             <property name="tooltip"></property>
             <property name="window_extra_style"></property>
             <property name="window_name"></property>
@@ -6819,7 +6819,7 @@
                                 <property name="gripper">0</property>
                                 <property name="hidden">0</property>
                                 <property name="id">wxID_ANY</property>
-                                <property name="label">New wxHexEditor version %s is available!</property>
+                                <property name="label">New wxHexEditor-ng version %s is available!</property>
                                 <property name="markup">0</property>
                                 <property name="max_size"></property>
                                 <property name="maximize_button">0</property>
@@ -6881,7 +6881,7 @@
                                 <property name="hidden">0</property>
                                 <property name="hover_color"></property>
                                 <property name="id">wxID_ANY</property>
-                                <property name="label">Download new wxHexEditor</property>
+                                <property name="label">Download new wxHexEditor-ng</property>
                                 <property name="max_size"></property>
                                 <property name="maximize_button">0</property>
                                 <property name="maximum_size"></property>
@@ -6904,7 +6904,7 @@
                                 <property name="subclass"></property>
                                 <property name="toolbar_pane">0</property>
                                 <property name="tooltip"></property>
-                                <property name="url">http://www.wxhexeditor.org</property>
+                                <property name="url">https://github.com/dariox86/wxHexEditor-ng</property>
                                 <property name="visited_color"></property>
                                 <property name="window_extra_style"></property>
                                 <property name="window_name"></property>

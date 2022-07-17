@@ -26,11 +26,11 @@ LIBS += udis86/libudis86/.libs/libudis86.a mhash/lib/.libs/libmhash.a
 OBJECTS=$(SOURCES:.cpp=.o)
 DEPENDS=$(OBJECTS:.o=.d)
 LANGUAGEDIRS=`ls -l ./locale | grep ^d | sed s/.*\ //g;`
-LANGUAGES=$(wildcard locale/*/wxHexEditor.po)
+LANGUAGES=$(wildcard locale/*/wxHexEditor-ng.po)
 TEMPLATEDIRS=`ls -l ./templates | grep ^d | sed s/.*\ //g;`
 RESOURCES= resources/resource.rc
 RESOURCE_OBJ=$(RESOURCES:.rc=.o)
-EXECUTABLE=wxHexEditor
+EXECUTABLE=wxHexEditor-ng
 EXECUTABLE_WIN=$(EXECUTABLE).exe
 EXECUTABLE_DIR_MAC=$(EXECUTABLE).app
 
@@ -96,13 +96,13 @@ maclink: $(OBJECTS)
 	$(CXX) $(OBJECTS) ${LDFLAGS} $(LIBS) ${CXXFLAGS} ${OPTFLAGS} $(WXLDFLAGS) -lexpat -Wl,-stack_size,0x2000000 -o $(EXECUTABLE)
 
 mac: prepmacdir maclink
-	install -m 755 wxHexEditor $(EXECUTABLE_DIR_MAC)/Contents/MacOS/
+	install -m 755 wxHexEditor-ng $(EXECUTABLE_DIR_MAC)/Contents/MacOS/
 
 prepmacdir: langs
 	mkdir -p $(EXECUTABLE_DIR_MAC)/Contents
 	mkdir -p $(EXECUTABLE_DIR_MAC)/Contents/MacOS
 	mkdir -p $(EXECUTABLE_DIR_MAC)/Contents/Resources
-	install -m 644 resources/wxHexEditor.icns $(EXECUTABLE_DIR_MAC)/Contents/Resources/
+	install -m 644 resources/wxHexEditor-ng.icns $(EXECUTABLE_DIR_MAC)/Contents/Resources/
 	printf "APPLHexE" > $(EXECUTABLE_DIR_MAC)/Contents/PkgInfo
 	printf "\
 <?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
@@ -113,16 +113,16 @@ prepmacdir: langs
 \t<string>English</string>\n\
 \
 \t<key>CFBundleExecutable</key>\n\
-\t<string>wxHexEditor</string>\n\
+\t<string>wxHexEditor-ng</string>\n\
 \
 \t<key>CFBundleGetInfoString</key>\n\
-\t<string>wxHexEditor v$(VERSION)</string>\n\
+\t<string>wxHexEditor-ng v$(VERSION)</string>\n\
 \
 \t<key>CFBundleIconFile</key>\n\
-\t<string>wxHexEditor.icns</string>\n\
+\t<string>wxHexEditor-ng.icns</string>\n\
 \
 \t<key>CFBundleIdentifier</key>\n\
-\t<string>org.wxhexeditor.www</string>\n\
+\t<string>org.wxhexeditor-ng.www</string>\n\
 \
 \t<key>CFBundleShortVersionString</key>\n\
 \t<string>v$(VERSION)</string>\n\
@@ -131,7 +131,7 @@ prepmacdir: langs
 \t<string>6.0</string>\n\
 \
 \t<key>CFBundleName</key>\n\
-\t<string>wxHexEditor</string>\n\
+\t<string>wxHexEditor-ng</string>\n\
 \
 \t<key>CFBundlePackageType</key>\n\
 \t<string>APPL</string>\n\
@@ -143,10 +143,10 @@ prepmacdir: langs
 \t<string>1.0.0</string>\n\
 \
 \t<key>DRURLs</key>\n\
-\t<string>http://www.wxhexeditor.org</string>\n\
+\t<string>https://github.com/dariox86/wxHexEditor-ng</string>\n\
 \
 \t<key>NSMainNibFile</key>\n\
-\t<string>wxHexEditor</string>\n\
+\t<string>wxHexEditor-ng</string>\n\
 \
 \t<key>NSPrincipalClass</key>\n\
 \t<string>NSApplication</string>\n\
@@ -160,8 +160,8 @@ prepmacdir: langs
 		echo "mkdir -p $(EXECUTABLE_DIR_MAC)/Contents/Resources/locale/$$i/"; \
 		mkdir -p $(EXECUTABLE_DIR_MAC)/Contents/Resources/locale/$$i; done
 	@for i in $(LANGUAGEDIRS); do \
-		echo "cp locale/$$i/wxHexEditor.mo $(EXECUTABLE_DIR_MAC)/Contents/Resources/locale/$$i/"; \
-		cp locale/$$i/wxHexEditor.mo $(EXECUTABLE_DIR_MAC)/Contents/Resources/locale/$$i/; done
+		echo "cp locale/$$i/wxHexEditor-ng.mo $(EXECUTABLE_DIR_MAC)/Contents/Resources/locale/$$i/"; \
+		cp locale/$$i/wxHexEditor-ng.mo $(EXECUTABLE_DIR_MAC)/Contents/Resources/locale/$$i/; done
 	@for i in $(TEMPLATEDIRS); do \
 		echo "mkdir -p $(EXECUTABLE_DIR_MAC)/Contents/Resources/templates/$$i/"; \
 		mkdir -p $(EXECUTABLE_DIR_MAC)/Contents/Resources/templates/$$i/; \
@@ -172,23 +172,23 @@ install:
 	# Can't use install -D because FreeBSD doesn't have the semantics.
 	mkdir -p $(DESTDIR)/$(BINDIR) $(DESTDIR)/$(DATADIR)/pixmaps $(DESTDIR)/$(DATADIR)/applications
 	install -m 755 $(EXECUTABLE) $(DESTDIR)/$(BINDIR)/$(EXECUTABLE)
-	install -m 644 resources/wxHexEditor.png $(DESTDIR)/$(DATADIR)/pixmaps/wxHexEditor.png
-	install -m 644 resources/wxHexEditor.desktop $(DESTDIR)/$(DATADIR)/applications/wxHexEditor.desktop
+	install -m 644 resources/wxHexEditor-ng.png $(DESTDIR)/$(DATADIR)/pixmaps/wxHexEditor-ng.png
+	install -m 644 resources/wxHexEditor-ng.desktop $(DESTDIR)/$(DATADIR)/applications/wxHexEditor-ng.desktop
 	@for i in $(LANGUAGEDIRS); do \
-		echo "install -m 644 locale/$$i/wxHexEditor.mo $(DESTDIR)/$(LOCALEDIR)/$$i/LC_MESSAGES/wxHexEditor.mo"; \
+		echo "install -m 644 locale/$$i/wxHexEditor-ng.mo $(DESTDIR)/$(LOCALEDIR)/$$i/LC_MESSAGES/wxHexEditor-ng.mo"; \
 		mkdir -p $(DESTDIR)/$(LOCALEDIR)/$$i/LC_MESSAGES/; \
-		install -m 644 locale/$$i/wxHexEditor.mo $(DESTDIR)/$(LOCALEDIR)/$$i/LC_MESSAGES/wxHexEditor.mo; done
+		install -m 644 locale/$$i/wxHexEditor-ng.mo $(DESTDIR)/$(LOCALEDIR)/$$i/LC_MESSAGES/wxHexEditor-ng.mo; done
 	@for i in $(TEMPLATEDIRS); do \
-		echo "install -m 644 templates/$$i/* $(DESTDIR)/$(LOCALEDIR)/wxHexEditor/$$i/"; \
-		mkdir -p $(DESTDIR)/$(DATADIR)/wxHexEditor/templates/$$i/; \
-		install -m 644 templates/$$i/* -t $(DESTDIR)/$(DATADIR)/wxHexEditor/templates/$$i; done
+		echo "install -m 644 templates/$$i/* $(DESTDIR)/$(LOCALEDIR)/wxHexEditor-ng/$$i/"; \
+		mkdir -p $(DESTDIR)/$(DATADIR)/wxHexEditor-ng/templates/$$i/; \
+		install -m 644 templates/$$i/* -t $(DESTDIR)/$(DATADIR)/wxHexEditor-ng/templates/$$i; done
 
 uninstall:
 	rm -f $(DESTDIR)/$(BINDIR)/$(EXECUTABLE)
-	rm -f $(DESTDIR)/$(DATADIR)/pixmaps/wxHexEditor.png
-	rm -f $(DESTDIR)/$(DATADIR)/applications/wxHexEditor.desktop
-	rm -rf $(DESTDIR)/$(DATADIR)/wxHexEditor/templates
-	rm -f $(DESTDIR)/$(LOCALEDIR)/*/LC_MESSAGES/wxHexEditor.mo
+	rm -f $(DESTDIR)/$(DATADIR)/pixmaps/wxHexEditor-ng.png
+	rm -f $(DESTDIR)/$(DATADIR)/applications/wxHexEditor-ng.desktop
+	rm -rf $(DESTDIR)/$(DATADIR)/wxHexEditor-ng/templates
+	rm -f $(DESTDIR)/$(LOCALEDIR)/*/LC_MESSAGES/wxHexEditor-ng.mo
 
 clean:
 	rm -f $(OBJECTS)
@@ -198,7 +198,7 @@ clean:
 	rm -f src/windrv.o
 	rm -f $(EXECUTABLE_WIN)
 	rm -rf $(EXECUTABLE_DIR_MAC)
-	rm -f locale/*/wxHexEditor.mo
+	rm -f locale/*/wxHexEditor-ng.mo
 distclean: clean
 	cd udis86;$(MAKE) distclean
 	cd mhash;$(MAKE) distclean
