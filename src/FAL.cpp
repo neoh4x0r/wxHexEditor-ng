@@ -501,7 +501,7 @@ DiffNode* FAL::NewNode( uint64_t start_byte, const char* data, int64_t size, boo
 	if( size < 0 ){//Deletion!
 		newnode->old_data = new unsigned char[-size];
 		if( newnode->old_data == NULL )
-			wxLogError( _("Not Enought RAM") );
+			wxLogError( _("Not Enough RAM") );
 		else{
 			Seek( start_byte, wxFromStart );
 			Read( newnode->old_data, -size );
@@ -511,7 +511,7 @@ DiffNode* FAL::NewNode( uint64_t start_byte, const char* data, int64_t size, boo
 	else if( inject ){
 		newnode->new_data = new unsigned char[size];
 		if( newnode->new_data == NULL )
-			wxLogError( _("Not Enought RAM") );
+			wxLogError( _("Not Enough RAM") );
 		else{
 			memcpy( newnode->new_data, data, size);
 			return newnode;
@@ -521,7 +521,7 @@ DiffNode* FAL::NewNode( uint64_t start_byte, const char* data, int64_t size, boo
 		newnode->old_data = new unsigned char[size];
 		newnode->new_data = new unsigned char[size];
 		if( newnode->old_data == NULL || newnode->new_data == NULL){
-			wxLogError( _("Not Enought RAM") );
+			wxLogError( _("Not Enough RAM") );
 			delete [] newnode->old_data;
 			delete [] newnode->new_data;
 			return NULL;
