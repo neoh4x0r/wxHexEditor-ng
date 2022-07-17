@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Name=wxHexEditor-ng
+GenericName=wxHexEditor-ng
+Comment=A hex editor for huge files and devices
+Exec=wxHexEditor-ng
+Icon=wxHexEditor-ng
+Terminal=false
+Type=Application
+Categories=Utility;TextEditor;Utility;
+
+Name[it_IT]=wxHexEditor-ng.desktop
