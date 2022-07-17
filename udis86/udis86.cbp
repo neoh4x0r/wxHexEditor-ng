@@ -98,6 +98,9 @@
 				</Compiler>
 			</Target>
 		</Build>
+		<ExtraCommands>
+			<Add before="python scripts/ud_itab.py docs/x86/optable.xml libudis86" />
+		</ExtraCommands>
 		<Unit filename="libudis86/decode.c">
 			<Option compilerVar="CC" />
 		</Unit>
