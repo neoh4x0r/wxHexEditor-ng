@@ -1,10 +1,9 @@
-# wxHexEditor
-wxHexEditor official GIT repo
-For info : http://www.wxhexeditor.org
+# wxHexEditor-ng
+A fork of the original wxHexEditor by Erdem U. Altinyurt (https://www.wxhexeditor.org).
 
 # Compilation instructions
 Just launch `make`!
 
-# Compilation dependencies on Linux
+# Compilation dependencies on GNU/Linux
 
-- wxgtk;
+- wxWidgets development libraries. Python is needed for udis86 building script. Polkit or GKSu are needed for runtime privileged tasks such as direct storage and memory access.
